@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @microposts = @user.microposts.paginate(page: params[:page])
     redirect_to root_url and return unless @user.activated
   end
 
@@ -66,17 +67,7 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
     
-        # beforeアクション
-
-    # ログイン済みユーザーかどうか確認
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
-    
+    # beforeアクション
     # 正しいユーザーかどうか確認
     def correct_user
       @user = User.find(params[:id])
