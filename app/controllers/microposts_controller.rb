@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :set_micropost, only: [:edit, :update, :destroy]
+  before_action :set_micropost, only: [:destroy]
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
   
@@ -11,27 +11,6 @@ class MicropostsController < ApplicationController
     else
       @feed_items = []
       render 'static_pages/home'
-    end
-  end
-
-  def destroy
-  end
-
-  # GET /microposts/1/edit
-  def edit
-  end
-
-  # PATCH/PUT /microposts/1
-  # PATCH/PUT /microposts/1.json
-  def update
-    respond_to do |format|
-      if @micropost.update(micropost_params)
-        format.html { redirect_to @micropost, notice: 'Micropost was successfully updated.' }
-        format.json { render :show, status: :ok, location: @micropost }
-      else
-        format.html { render :edit }
-        format.json { render json: @micropost.errors, status: :unprocessable_entity }
-      end
     end
   end
 
