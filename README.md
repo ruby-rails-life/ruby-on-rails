@@ -1,9 +1,4 @@
-# README
-# TEST BRANCH
-# TEST ISSUE
-# TEST MERGE CONFLICT
-# TEST COMMIT WITH ISSUE
-# TEST ASSIGNING
+# Ruby on Rails Tutorial  
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
